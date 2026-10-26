@@ -136,16 +136,3 @@ python client.py
 > - **Côté Serveur** : Déchiffrement de la clé AES avec la clé privée RSA, puis déchiffrement AES du message et décodage Base64.
 
 ---
-
-## ⚠️ Notes importantes sur les corrections apportées
-
-Le document PDF original contenait plusieurs erreurs de syntaxe et d'API. Voici les principales corrections appliquées dans ce projet :
-
-1. **Bibliothèque** : Utilisation de `pycryptodome` au lieu de `Crypto` (obsolète).
-2. **Clé AES** : La clé doit être encodée en `bytes` (`"cle16 octets AES".encode()`) et un mode de chiffrement doit être spécifié (`AES.MODE_ECB`).
-3. **Syntaxe `b'='`** : Le PDF indiquait `b='` (erreur de frappe). La bonne syntaxe est `padding * b'='`.
-4. **Sockets** : La méthode `connect()` et `bind()` attend un tuple `("127.0.0.1", port)` et non deux arguments séparés.
-5. **Noms de fichiers** : Le PDF mentionnait `fichier_cle_prise.pem` au lieu de `fichier_cle_privee.pem`.
-6. **Opérateurs** : Remplacement de `:=` (opérateur d'assignation, valide uniquement dans les expressions) par `=` (assignation classique) dans les boucles.
-
----
